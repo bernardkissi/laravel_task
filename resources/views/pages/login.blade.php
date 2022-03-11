@@ -5,13 +5,33 @@
         <div class="mt-24">
             <h1 class="font-semibold text-4xl w-[350px]">Welcome Back!</h1>
             <div class="mt-12">
-                <div class="grid grid-cols-1 grid-flow-row gap-4">
-                    <input type='text' class="w-full p-3 mt-2 bg-white border border-gray-200 rounded-lg"
-                        placeholder="Enter username">
-                    <input type='password' class="w-full p-3 mt-2 bg-white border border-gray-200 rounded-lg"
-                        placeholder="Enter password">
-                </div>
-                <button class="w-full mt-8 p-3 bg-green-400 rounded-lg text-white">Access account</button>
+                @if (Session::has('error'))
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+                        <p class="font-bold">Success!</p>
+                        <p>{{ Session::get('error') }}</p>
+                    </div>
+                @endif
+                <form method="POST" action="{{ route('auth.login') }}">
+                    @csrf
+                    <div class="grid grid-cols-1 grid-flow-row gap-4">
+                        <div>
+                            <input type='text' name="username"
+                                class="w-full p-3 mt-2 bg-white border border-gray-200 rounded-lg"
+                                placeholder="Enter username">
+                            @if ($errors->has('username'))
+                                <span class="text-xs text-red-500">{{ $errors->first('username') }}</span>
+                            @endif
+                        </div>
+                        <div>
+                            <input type='password' name="password"
+                                class="w-full p-3 mt-2 bg-white border border-gray-200 rounded-lg"
+                                placeholder="Enter password">
+                            @if ($errors->has('password'))
+                                <span class="text-xs text-red-500">{{ $errors->first('password') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <button class="w-full mt-8 p-3 bg-green-400 rounded-lg text-white">Access account</button>
 
                 </form>
 

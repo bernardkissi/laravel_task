@@ -30,6 +30,7 @@ class RegisterRequest extends FormRequest
             'telephone' => 'required',
             'nationality' => 'required',
             'birth_date' =>'required|date',
+            'info' => 'nullable',
             'password' => [
                 'required',
                 'min:6',
