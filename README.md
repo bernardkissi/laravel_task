@@ -1,3 +1,8 @@
+### project installation
+
+-   create a database with name `task`
+-   run this command `php artisan migrate` to migrate database
+
 ### Some assumptions made
 
 ## 1.the application just stimulate login and registering functionalities\\ 2. Also the responsiveness of the pages were not given much attention due to the submission time.
