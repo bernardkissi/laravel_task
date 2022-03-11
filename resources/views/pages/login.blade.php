@@ -7,7 +7,7 @@
             <div class="mt-12">
                 @if (Session::has('error'))
                     <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
-                        <p class="font-bold">Success!</p>
+                        <p class="font-bold">Error!</p>
                         <p>{{ Session::get('error') }}</p>
                     </div>
                 @endif
@@ -36,7 +36,7 @@
                 </form>
 
                 <p class="mt-2 text-gray-400">Dont have an account <a class="text-gray-700 hover:text-green-600"
-                        href="#">Register</a></p>
+                        href="{{ route('register') }}">Register</a></p>
                 <p class="mb-8 mt-2 text-gray-400">Forgot Password <a class="text-gray-700 hover:text-green-600"
                         href="#">Reset Password</a></p>
             </div>

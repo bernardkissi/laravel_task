@@ -16,7 +16,7 @@ class RegisterController extends Controller
     {
         $payload = $request->validated();
 
-        User::create([
+        $user = User::create([
             'name' => $payload['name'],
             'username' => $payload['username'],
             'email' => $payload['email'],
@@ -26,6 +26,8 @@ class RegisterController extends Controller
             'birth_date' => $payload['birth_date'],
             'info' => $payload['info']
         ]);
+
+        $user->addMediaFromRequest('profile')->toMediaCollection('profiles');
 
         return redirect("login")->withSuccess('You have successfully created an account');
     }

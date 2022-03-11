@@ -5,7 +5,7 @@
         <div>
             <h1 class="font-semibold text-4xl w-[350px]">Become a part of the Luxe Tribes!</h1>
             <div class="mt-12">
-                <form method="POST" action="{{ route('auth.register') }}">
+                <form method="POST" action="{{ route('auth.register') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="flex items-start space-x-3">
                         <svg class="w-24 h-24 fill-color text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -21,14 +21,14 @@
                             <p class="mt-2 text-sm font-normal text-gray-400">Supported format: jpg, jpeg, png</p>
                             <div>
                                 <label
-                                    class="flex items-center space-x-4 mt-2 mx-auto pl-3 py-1 bg-white rounded-full bg-gray-100">
+                                    class="flex items-center space-x-4 mt-2 mx-auto pl-3 py-1 bg-white rounded-full bg-gray-100 hover:bg-gray-200">
                                     <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
                                         <path
                                             d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                     </svg>
                                     <span class="text-base leading-normal">Upload a photo</span>
-                                    <input type='file' class="hidden" />
+                                    <input type='file' name="profile" class="hidden" />
                                 </label>
                             </div>
                         </div>
@@ -354,7 +354,7 @@
                 </form>
 
                 <p class="mb-8 mt-2 text-gray-400">Already have an account <a class="text-gray-700 hover:text-green-600"
-                        href="#">log
+                        href="{{ route('login') }}">log
                         in your account</a></p>
             </div>
         </div>

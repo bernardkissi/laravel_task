@@ -19,7 +19,7 @@ class LoginController extends Controller
         $credentials = $request->safe()->only(['username', 'password']);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home')
+            return redirect()->intended('/')
                         ->withSuccess('Signed in');
         }
         Session::flash('error', 'Username or password is incorrect');
