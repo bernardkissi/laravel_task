@@ -9,8 +9,6 @@
     </div>
     <ul class="flex items-center space-x-5">
         <li><a href="#">About us</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Blog</a></li>
         <li><a href="#">Contact us</a></li>
         <li
             class="group flex items-center space-x-2 px-2 border border-gray-200 p-[0.2rem] hover:bg-pink-300 hover:text-white hover:border-pink-300 rounded-full">
@@ -28,7 +26,7 @@
                     class="px-2 border border-gray-200 p-[0.3rem] hover:bg-pink-300 hover:text-white hover:border-pink-300 rounded-full">
                     <a class="flex items-center space-x-2" href="{{ route('logout') }}">
                         <img src="{{ $url }}" alt="profile" class="w-8 h-8 rounded-full">
-                        <span>{{ Auth::user()->username }} </span>
+                        <span>{{ Auth::user()->username[0] }} - Logout</span>
                     </a>
                 </li>
             @else
